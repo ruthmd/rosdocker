@@ -9,7 +9,7 @@ docker build -t . rosimage
 
 ## run image
 ```bash
-docker run -it  --name roslocal ros:noetic-robot
+docker run -it  --name roslocal rosimage
 ```
 
 ## Use tmux within container
