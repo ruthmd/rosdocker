@@ -37,6 +37,8 @@ fi
 git clone https://github.com/ros-planning/panda_moveit_config.git -b noetic-devel
 
 # Update rosdep database
+apt-get update
+
 rosdep update
 
 # Install dependencies
@@ -44,4 +46,5 @@ rosdep install --from-paths . --ignore-src -r -y
 
 # Build the Catkin workspace
 cd $CATKIN_WS
-# catkin_make
+# # catkin_make
+exec "$@"
