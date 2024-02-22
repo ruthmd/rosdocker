@@ -6,6 +6,7 @@ FROM ros:noetic-robot
 RUN apt-get update && apt-get install -y --no-install-recommends \
     tmux \
     vim \
+    git \
     ros-noetic-robot=1.5.0-1* \
     ros-noetic-ros-tutorials \
     ros-noetic-rviz \
