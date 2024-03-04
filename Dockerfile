@@ -1,5 +1,3 @@
-# This is an auto-generated Dockerfile for ros:robot
-# generated from docker_images/create_ros_image.Dockerfile.em
 FROM ros:noetic-robot
 
 # install ros packages
@@ -24,8 +22,9 @@ COPY ros_entrypoint.sh /ros_entrypoint.sh
 # Make sure the entrypoint script is executable
 RUN chmod +x /ros_entrypoint.sh
 
+RUN /ros_entrypoint.sh
 # Set the entrypoint script to be executed when the container starts
-ENTRYPOINT ["/ros_entrypoint.sh"]
+# ENTRYPOINT ["/ros_entrypoint.sh"]
 
 # By default, just start a bash shell
 CMD ["bash"]

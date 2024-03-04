@@ -1,29 +1,18 @@
 # rosdocker
 rosimage docker with tmux
 
-
-## Make sure XQuartz is installed and running
-```bash
-brew cask install xquartz
-open -a XQuartz
-
-## Allow connections from localhost on Xquartz terminal
-IP=$(ifconfig en0 | grep inet | awk '$1=="inet" {print $2}')
-/usr/X11/bin/xhost + $IP
-```
-
 ## Build docker image
 open new terminal
 ```bash
 cd rosdocker
-docker build -t . rosimage
+docker-compose up --build
 ```
-
-# Run the Docker container with XQuartz
-``` bash
-IP=$(ifconfig en0 | grep inet | awk '$1=="inet" {print $2}')
-docker run -it --name roslocal -e DISPLAY=$IP:0 rosimage
-```
+## Running RViz
+1. Run `docker-compose exec ros bash` (`docker-compose up` has to be running)
+2. Run `cd ~/catkin_ws && catkin_make && source devel/setup.bash`
+3. Run `rosrun rviz rviz`
+4. Open your browser to `localhost:8080/vnc.html` and click connect.
+5. RViz is now running in your browser.
 
 ## Use tmux within container
 ```bash
@@ -31,4 +20,4 @@ tmux new -s ros
 ```
 [Tmux Cheatsheet](https://tmuxcheatsheet.com)
 
-This README provides instructions for setting up and running the Docker container with XQuartz support for graphical applications. It includes commands to install XQuartz, allow connections, and run the Docker container with the appropriate display settings.
+Inspired from [mac-ros](https://github.com/nebohq/mac-ros/)
