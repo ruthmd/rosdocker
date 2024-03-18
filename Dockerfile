@@ -5,10 +5,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     tmux \
     vim \
     git \
+    xterm \
     ros-noetic-robot=1.5.0-1* \
     ros-noetic-ros-tutorials \
     ros-noetic-rviz \
     ros-noetic-rqt-graph \
+    ros-noetic-rqt-plot \
     ros-noetic-navigation \
     ros-noetic-perception \
     python3-catkin-tools \
